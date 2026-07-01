@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 30 15% 15%;
+    --card: 40 30% 99%;
+    --card-foreground: 30 15% 15%;
+    --popover: 40 30% 99%;
+    --popover-foreground: 30 15% 15%;
+    --primary: 38 32% 72%;
+    --primary-foreground: 30 20% 15%;
+    --secondary: 35 25% 92%;
+    --secondary-foreground: 30 18% 22%;
+    --muted: 35 20% 94%;
+    --muted-foreground: 30 10% 45%;
+    --accent: 31 69% 96%;
+    --accent-foreground: 95 20% 25%;
+    --destructive: 5 65% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 35 18% 85%;
+    --input: 35 18% 85%;
+    --ring: 38 32% 72%;
+    --chart-1: 38 32% 65%;
+    --chart-2: 95 25% 55%;
+    --chart-3: 210 20% 55%;
+    --chart-4: 20 35% 65%;
+    --chart-5: 45 45% 60%;
+    --radius: 0.75rem;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes step-pop-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.75);
+    }
+    70% {
+      transform: scale(1.08);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out both;
+  }
+}
