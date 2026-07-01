@@ -59,6 +59,15 @@ export function EmailPasswordStep({ onSuccess }: { onSuccess: () => void }) {
       return;
     }
 
+    // Supabase returns a fake success for existing emails when email confirmation
+    // is enabled to prevent enumeration. The identities array is empty in that case.
+    if (signUpData.user?.identities?.length === 0) {
+      setError("root", {
+        message: "En konto med denne e-postadressen finnes allerede.",
+      });
+      return;
+    }
+
     if (signUpData.session) {
       onSuccess();
     } else {
